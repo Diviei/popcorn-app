@@ -1,13 +1,26 @@
-#Popcorn time [![Dependency Status](https://david-dm.org/popcorn-time/popcorn-app.png?theme=shields.io)](https://david-dm.org/popcorn-time/popcorn-time)
+# Unicorns!
 
-# [Goodbye](https://medium.com/p/93f890b8c9f4)
-**Update** *15 March 2014* : Sorry friends, but we removed issue tracking because it was being used to link elsewhere.
+This is a fork of [now abadoned][medium] Popcorn Time app. This is the *uni*fied place for community to work on it. I've reopened the [issues section][issues] so yes, we can get back to a normal development cycle.
+
+### Todo list
+
+* Binary builds
+* Website (probably just fork [the original one][githubio])
+
+[medium]:   https://medium.com/p/93f890b8c9f4
+[issues]:   https://github.com/unicorn-time/popcorn-app/issues
+[githubio]: https://github.com/popcorn-time/popcorn-time.github.io
+
+
+# Popcorn Time [![Dependency Status](https://david-dm.org/unicorn-time/popcorn-app.png?theme=shields.io)](https://david-dm.org/unicorn-time/popcorn-app)
 
 ## Idea
 
 To allow any computer user to watch movies easily streaming from torrents, without any particular knowledge.
 
-![Demo Screenshot](http://getpopcornti.me/images/how-ui.png)
+![Demo Screenshot][screenshot]
+
+[screenshot]: https://i.imgur.com/OLanAVR.png
 
 ### Status
 
@@ -16,15 +29,13 @@ Under development (RC1) for Mac OSX - Windows - Linux.
 ### APIs
 
 **Currently used:**
-- ~~[RottenTomatoes](http://developer.rottentomatoes.com) for movies metadata.~~
-- ~~[PirateBay](http://thepiratebay.se/browse/207/0/7/0) Recent popular movies list.~~
-- [YIFY](http://yts.re/api) movie torrents API.
-- [OpenSubtitles](http://trac.opensubtitles.org/projects/opensubtitles/wiki/XMLRPC) for subtitles
-- [TheMovieDB](http://www.themoviedb.org/) for movies metadata.
+- [YIFY][] movie torrents API.
+- [OpenSubtitles][] for subtitles
+- [TheMovieDB][] for movies metadata.
 
-**In discussion:**
-- [SubtitleSeeker](http://www.api.subtitleseeker.com/About/Api-Search/) for subtitles.
-
+[YIFY]: http://yts.re/api
+[OpenSubtitles]: http://trac.opensubtitles.org/projects/opensubtitles/wiki/XMLRPC
+[TheMovieDB]: http://www.themoviedb.org/
 
 ## Building
 
