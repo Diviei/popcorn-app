@@ -73,16 +73,9 @@ App.View.Sidebar = Backbone.View.extend({
                     }
                 }
 
-                if( bufferStatus != previousStatus ) {
-                    userTracking.event('Video Preloading', bufferStatus, movieModel.get('niceTitle')).send();
-                    previousStatus = bufferStatus;
-                }
-
                 $('.popcorn-load .progressinfo').text( i18n.__(bufferStatus) );
             }
         );
-
-        userTracking.event('Movie Quality', 'Watch on '+this.model.get('quality')+' - '+this.model.get('health').capitalize(), this.model.get('niceTitle') ).send();
     },
 
     initialize: function () {
@@ -92,10 +85,13 @@ App.View.Sidebar = Backbone.View.extend({
 
     load: function (model) {
         // TODO: QUEUE PLAY BUTTON
-        this.listenTo(model, 'change:subtitles', this.render);
-
-        this.model = model;
-        this.render();
+        var self = this;
+        App.findSubtitle(model.attributes, function(subs){
+            model.set('subtitles',subs);
+            self.listenTo(model, 'change:subtitles', self.render);
+            self.model = model;
+            self.render();
+        });
     },
 
     render: function () {
@@ -136,9 +132,6 @@ App.View.Sidebar = Backbone.View.extend({
             noSubForUser = false;
           }
         }
-
-        userTracking.event( 'Movie Closed', this.model.get('niceTitle'),
-                            (noSubForUser ? 'No Local Subtitles' : 'With Local Subtitles') +' - '+ this.model.get('health').capitalize() ).send();
       }
 
       $('.movie.active').removeClass('active');
@@ -157,8 +150,6 @@ App.View.Sidebar = Backbone.View.extend({
         this.backdropCache.onload = function () {
             $(".backdrop-image").addClass("loaded")
         };
-
-        userTracking.pageview('/movies/view/'+this.model.get('slug'), this.model.get('niceTitle') ).send();
     },
 
     enableHD: function (evt) {
